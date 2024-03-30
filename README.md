@@ -1,12 +1,12 @@
-DATA1700 &ndash; Oblig 2
+DATA1700 &ndash; Oblig 3
 ========================
 OsloMet-brukernavn: alope0420
 
 GitHub-brukernavn: alope0420
 
-GitHub-repo URL: https://github.com/alope0420/data1700-oblig2
+GitHub-repo URL: https://github.com/alope0420/data1700-oblig3
 
-GitHub Pages (kun frontend): https://alope0420.github.io/data1700-oblig2/src/main/resources/static/
+GitHub Pages (kun frontend): https://alope0420.github.io/data1700-oblig3/src/main/resources/static/
 
 Fullt navn: Alexander Benjamin Rød Opedal
 

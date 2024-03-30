@@ -1,4 +1,4 @@
-package no.oslomet.alope0420.data1700.oblig2;
+package no.oslomet.alope0420.data1700.oblig3;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
