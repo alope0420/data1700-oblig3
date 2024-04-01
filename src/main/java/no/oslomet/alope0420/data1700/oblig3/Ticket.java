@@ -3,7 +3,9 @@ package no.oslomet.alope0420.data1700.oblig3;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Ticket {
