@@ -75,7 +75,7 @@ async function refreshTicketTable() {
     table.empty();
 
     // Re-add all tickets to table
-    for (const ticket of tickets.reverse()) {
+    for (const ticket of tickets) {
         const row = $('<tr/>');
         table.append(row);
         for (const fieldId of fieldIds) {

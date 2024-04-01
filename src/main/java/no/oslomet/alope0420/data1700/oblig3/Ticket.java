@@ -1,14 +1,21 @@
 package no.oslomet.alope0420.data1700.oblig3;
 
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
 @Data
 public class Ticket {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     @NotBlank
     private String movie;
