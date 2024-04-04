@@ -7,11 +7,12 @@ const fieldIds = ['movie', 'count', 'firstname', 'lastname', 'tel', 'email'];
 
 $('document').ready(async () => {
     //Populate movie list
+    visualizeAsyncOperation('#movie-dropdown-container',
     $.get('/movies/list', movies => {
         movies.forEach(movie => {
             $('#movie').append($('<option/>').val(movie.id).text(movie.name));
         });
-    });
+    }));
 
     // Add validation styles when user has unfocused an input after entering data
     $('#add-tickets-form input, select')

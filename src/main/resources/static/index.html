@@ -58,8 +58,23 @@
 
     <form id="add-tickets-form">
         <div class="row g-2 mt-0 mb-2">
-            <div class="col-sm-9">
-                <div class="form-floating">
+            <div class="col-sm-9" id="movie-dropdown-container">
+                <!-- It is surprisingly hard to make a spinner appear inside a Bootstrap select control.
+                The best solution I found is to use an input group and put a label containing the spinner
+                to the left of a dummy select control, then removing the border between them and setting
+                the appropriate background style to achieve the desired effect. We cannot reuse the actual
+                select control, since CSS does not ignore hidden elements when parsing :nth-child selectors,
+                meaning the border rounding would not work correctly. -->
+                <div class="input-group async-operation-active">
+                    <span class="input-group-text bg-body border-end-0">
+                        <i class="spinner-border m-auto"></i>
+                    </span>
+                    <div class="form-floating">
+                        <select class="form-select bg-body border-start-0" disabled></select>
+                    </div>
+                </div>
+
+                <div class="form-floating async-operation-inactive d-none">
                     <select id="movie" class="form-select" required>
                         <option hidden disabled selected value>&nbsp;</option>
                     </select>
