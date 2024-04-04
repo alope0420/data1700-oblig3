@@ -8,11 +8,15 @@ const fieldIds = ['movie', 'count', 'firstname', 'lastname', 'tel', 'email'];
 $('document').ready(async () => {
     //Populate movie list
     visualizeAsyncOperation('#movie-dropdown-container', async () => {
-        const movies = await $.get('/movies/list')
-            .fail(xhr => showHttpErrorToast(xhr, 'Henting av filmer mislyktes.'));
-        movies.forEach(movie => {
-            $('#movie').append($('<option/>').val(movie.id).text(movie.name));
-        });
+        try {
+            const movies = await $.get('/movies/list');
+            movies.forEach(addMovieOption);
+        } catch (xhr) {
+            showHttpErrorToast(xhr, 'Henting av filmer mislyktes. Genererer eksempelfilmer.');
+            // For demo/testing purposes - wouldn't make sense to do this in a real-world scenario
+            for (let i = 1; i <= 5; ++i)
+                addMovieOption({id: i, name: 'Eksempelfilm ' + i});
+        }
     });
 
     // Add validation styles when user has unfocused an input after entering data
@@ -95,11 +99,17 @@ async function refreshTicketTable() {
     }
 }
 
+function addMovieOption(movie) {
+    const movieOption = $('<option/>').val(movie.id).text(movie.name);
+    $('#movie').append(movieOption);
+}
+
 // Fill the form with dummy data for testing purposes
 async function fillDummyInfo() {
     await visualizeAsyncOperation('#fill-dummy-info-button', async () => {
         // Get dummy information from API, and take first result only
-        let dummyInfo = await $.get('https://randomuser.me/api/?nat=no');
+        let dummyInfo = await $.get('https://randomuser.me/api/?nat=no')
+            .fail(xhr => showHttpErrorToast(xhr, 'Henting av dummy-informasjon fra eksternt API mislyktes.'));
         dummyInfo = dummyInfo.results[0];
 
         // Generate random movie choice and ticket count
@@ -108,7 +118,7 @@ async function fillDummyInfo() {
         const ticketCount = Math.ceil(Math.min(...Array.from({length: 20}, Math.random)) * 100);
 
         // Fill form with dummy values
-        $('#movie').val(movieOptions[movieIndex].value);
+        $('#movie').val(movieOptions?.[movieIndex]?.value);
         $('#count').val(ticketCount);
         $('#firstname').val(dummyInfo.name.first);
         $('#lastname').val(dummyInfo.name.last);
