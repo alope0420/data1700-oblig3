@@ -7,12 +7,13 @@ const fieldIds = ['movie', 'count', 'firstname', 'lastname', 'tel', 'email'];
 
 $('document').ready(async () => {
     //Populate movie list
-    visualizeAsyncOperation('#movie-dropdown-container',
-    $.get('/movies/list', movies => {
+    visualizeAsyncOperation('#movie-dropdown-container', async () => {
+        const movies = await $.get('/movies/list')
+            .fail(xhr => showHttpErrorToast(xhr, 'Henting av filmer mislyktes.'));
         movies.forEach(movie => {
             $('#movie').append($('<option/>').val(movie.id).text(movie.name));
         });
-    }));
+    });
 
     // Add validation styles when user has unfocused an input after entering data
     $('#add-tickets-form input, select')

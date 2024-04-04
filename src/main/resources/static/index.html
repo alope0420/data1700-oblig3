@@ -66,7 +66,7 @@
                 select control, since CSS does not ignore hidden elements when parsing :nth-child selectors,
                 meaning the border rounding would not work correctly. -->
                 <div class="input-group async-operation-active">
-                    <span class="input-group-text bg-body border-end-0">
+                    <span class="input-group-text bg-body">
                         <i class="spinner-border m-auto"></i>
                     </span>
                     <div class="form-floating">
@@ -129,7 +129,7 @@
             <div class="col-sm-auto">
                 <button id="add-tickets-button" type="submit" class="btn btn-primary w-100">
                     <span class="async-operation-inactive">
-                        Kjøp billetter
+                        <i class="bi bi-cart4"></i> Kjøp billetter
                     </span>
                     <span class="async-operation-active d-none">
                         <i class="spinner-border spinner-border-sm"></i> Kjøper &hellip;
@@ -161,7 +161,7 @@
 
     <button id="clear-tickets-button" class="btn btn-danger col-12 col-sm-auto" type="button">
         <span class="async-operation-inactive">
-            Slett alle billettene
+            <i class="bi bi-trash3"></i> Slett alle billettene
         </span>
         <span class="async-operation-active d-none">
             <i class="spinner-border spinner-border-sm"></i> Sletter &hellip;
