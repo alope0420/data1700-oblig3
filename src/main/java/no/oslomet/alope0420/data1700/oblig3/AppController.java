@@ -4,16 +4,16 @@ import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import no.oslomet.alope0420.data1700.oblig3.entities.Movie;
 import no.oslomet.alope0420.data1700.oblig3.entities.Ticket;
+import no.oslomet.alope0420.data1700.oblig3.projections.TicketProjection;
 import no.oslomet.alope0420.data1700.oblig3.repositories.MovieRepository;
 import no.oslomet.alope0420.data1700.oblig3.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Collection;
 
 @Validated
 @RestController
@@ -35,7 +35,7 @@ public class AppController {
     }
 
     @GetMapping("/movies/list")
-    public List<Movie> listMovies() {
+    public Collection<Movie> listMovies() {
         return movies.findAll();
     }
 
@@ -45,8 +45,8 @@ public class AppController {
     }
 
     @GetMapping("/tickets/list")
-    public List<Ticket> listTickets() {
-        return tickets.findAll(Sort.by("lastname", "firstname"));
+    public Collection<TicketProjection> listTickets() {
+        return tickets.findByOrderByLastnameAscFirstnameAsc();
     }
 
     @PostMapping("/tickets/clear")
