@@ -8,8 +8,10 @@ export async function visualizeAsyncOperation(elemSelector, operation) {
         $(elemSelector).find('.async-operation-inactive').addClass('d-none');
         $(elemSelector).find('.async-operation-active').removeClass('d-none');
 
-        // Artificial delay to illustrate functionality better TODO: remove
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Artificial delay to illustrate functionality better
+        if ($('#artificial-delay-switch').prop('checked'))
+            await new Promise(resolve => setTimeout(resolve, 500));
+
         await operation();
 
     } finally {

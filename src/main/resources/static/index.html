@@ -180,7 +180,15 @@
     <div class="offcanvas-body">
         <div class="form-switch user-select-none" title="Slå av for å teste at validering på serversiden fungerer">
             <input id="client-validation-switch" class="form-check-input" type="checkbox" role="switch" checked>
-            <label class="form-check-label" for="client-validation-switch">Utfør validering på klient</label>
+            <label class="form-check-label" for="client-validation-switch">
+                Utfør validering på klient
+            </label>
+        </div>
+        <div class="form-switch user-select-none">
+            <input id="artificial-delay-switch" class="form-check-input" type="checkbox" role="switch" checked>
+            <label class="form-check-label" for="artificial-delay-switch">
+                Kunstig forsinkelse ved HTTP-forespørsler
+            </label>
         </div>
     </div>
 </aside>
@@ -203,6 +211,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="h4">Sletting av billetter</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Lukk"></button>
             </div>
             <div class="modal-body">
                 Er du sikker på at du vil slette alle billettene? Dette kan ikke angres.
