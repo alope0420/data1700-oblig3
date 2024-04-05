@@ -1,12 +1,7 @@
-package no.oslomet.alope0420.data1700.oblig3;
+package no.oslomet.alope0420.data1700.oblig3.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Entity
@@ -17,11 +12,13 @@ public class Ticket {
     @GeneratedValue
     private Integer id;
 
-    @NotBlank
-    private String movie;
+    @ManyToOne
+    @NotNull
+    private Movie movie;
 
     @Min(value = 1)
     @Max(value = 100)
+    @NotNull
     private Integer count;
 
     @NotBlank

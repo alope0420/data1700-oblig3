@@ -2,6 +2,8 @@ package no.oslomet.alope0420.data1700.oblig3;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
+import no.oslomet.alope0420.data1700.oblig3.entities.Movie;
+import no.oslomet.alope0420.data1700.oblig3.entities.Ticket;
 import no.oslomet.alope0420.data1700.oblig3.repositories.MovieRepository;
 import no.oslomet.alope0420.data1700.oblig3.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,8 +10,7 @@ export async function visualizeAsyncOperation(elemSelector, operation) {
 
         // Artificial delay to illustrate functionality better TODO: remove
         await new Promise(resolve => setTimeout(resolve, 500));
-        console.trace(elemSelector, operation);
-        await operation?.();
+        await operation();
 
     } finally {
         $(elemSelector).find('.async-operation-active').addClass('d-none');

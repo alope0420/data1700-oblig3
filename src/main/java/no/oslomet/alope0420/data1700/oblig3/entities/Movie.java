@@ -1,4 +1,4 @@
-package no.oslomet.alope0420.data1700.oblig3;
+package no.oslomet.alope0420.data1700.oblig3.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
