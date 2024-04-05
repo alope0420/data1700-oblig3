@@ -45,7 +45,7 @@ $('document').ready(async () => {
     });
 
     $('#fill-dummy-info-button').click(fillDummyInfo);
-    $('#clear-tickets-button').click(clearTickets);
+    $('#clear-tickets-modal-button').click(clearTickets);
     await refreshTicketTable();
 })
 

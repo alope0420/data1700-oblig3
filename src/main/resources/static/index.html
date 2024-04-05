@@ -159,7 +159,8 @@
         </table>
     </div>
 
-    <button id="clear-tickets-button" class="btn btn-danger col-12 col-sm-auto" type="button">
+    <button id="clear-tickets-button" class="btn btn-danger col-12 col-sm-auto" type="button"
+            data-bs-toggle="modal" data-bs-target="#clear-tickets-modal">
         <span class="async-operation-inactive">
             <i class="bi bi-trash3"></i> Slett alle billettene
         </span>
@@ -184,6 +185,7 @@
     </div>
 </aside>
 
+<!-- Toast template (cloned in JS every time a new toast is shown) -->
 <div class="toast-container position-fixed top-0 start-50 p-2 translate-middle-x">
     <div id="toast-template" class="toast toast-width-400 mb-2" role="status">
         <div class="d-flex">
@@ -191,6 +193,29 @@
             <button type="button" class="btn-close btn-close-white me-2 m-auto"
                     data-bs-dismiss="toast" aria-label="Lukk">
             </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal dialog for confirming ticket deletion -->
+<div class="modal" id="clear-tickets-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="h4">Sletting av billetter</h1>
+            </div>
+            <div class="modal-body">
+                Er du sikker på at du vil slette alle billettene? Dette kan ikke angres.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg"></i> Avbryt
+                </button>
+                <button id="clear-tickets-modal-button" type="button" class="btn btn-danger"
+                        data-bs-dismiss="modal">
+                    <i class="bi bi-trash3"></i> Slett alle billettene
+                </button>
+            </div>
         </div>
     </div>
 </div>
