@@ -1,6 +1,5 @@
 package no.oslomet.alope0420.data1700.oblig3;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import no.oslomet.alope0420.data1700.oblig3.entities.Movie;
 import no.oslomet.alope0420.data1700.oblig3.entities.Ticket;
@@ -23,16 +22,6 @@ public class AppController {
     private TicketRepository tickets;
     @Autowired
     private MovieRepository movies;
-
-    @PostConstruct
-    public void initialize() {
-        movies.save(new Movie(null, "The Godfather"));
-        movies.save(new Movie(null, "The Dark Knight"));
-        movies.save(new Movie(null, "Pulp Fiction"));
-        movies.save(new Movie(null, "Fight Club"));
-        movies.save(new Movie(null, "Forrest Gump"));
-        movies.save(new Movie(null, "Inception"));
-    }
 
     @GetMapping("/movies/list")
     public Collection<Movie> listMovies() {
