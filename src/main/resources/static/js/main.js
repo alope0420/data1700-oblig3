@@ -108,7 +108,7 @@ function addMovieOption(movie) {
 async function fillDummyInfo() {
     await visualizeAsyncOperation('#fill-dummy-info-button', async () => {
         // Get dummy information from API, and take first result only
-        let dummyInfo = await $.get('https://randomuser.me/api/?nat=no')
+        let dummyInfo = await $.get('https://randomuser.me/api/?nat=no&inc=name,phone,email')
             .fail(xhr => showHttpErrorToast(xhr, 'Henting av dummy-informasjon fra eksternt API mislyktes.'));
         dummyInfo = dummyInfo.results[0];
 
